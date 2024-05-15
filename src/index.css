@@ -3,3 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: titleFont;
+  src: url(/PlayfairDisplay-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url(/Roboto-Regular.ttf);
+}
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+#root {
+  padding: 10px;
+}
