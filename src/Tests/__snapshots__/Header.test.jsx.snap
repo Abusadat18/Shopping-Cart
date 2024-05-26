@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header Component > render header 1`] = `
+<div>
+  <header
+    class="_header_e88af3"
+  >
+    <div
+      class="_top_e88af3"
+    >
+      <h1>
+        BAZAAR PLAZA
+      </h1>
+      <div
+        class="_actions_e88af3"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            src="/account-circle.svg"
+            width="35"
+          />
+        </a>
+        <a
+          class=""
+          href="/myCart"
+        >
+          <img
+            alt=""
+            src="/cart.svg"
+            width="35"
+          />
+        </a>
+      </div>
+    </div>
+    <nav>
+      <a
+        aria-current="page"
+        class="_navLink_e88af3 active"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="_navLink_e88af3"
+        href="/shop"
+      >
+        Shop
+      </a>
+    </nav>
+  </header>
+</div>
+`;
