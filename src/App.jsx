@@ -6,31 +6,36 @@ import { useState } from "react"
 function App() {
   
   const [products, error, loading] = useData()
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      price: 109.95,
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    },
-    {
-      id: 2,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      price: 109.95,
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    },
-    {
-      id: 3,
-      title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-      price: 109.95,
-      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    }
-  ])
+  const [cart, setCart] = useState([])
+
+  function addToCart(item, count){
+    setCart((prev) => [...prev,{id: item.id, title: item.title, price: item.price, image: item.image, count: count, totalPrice: item.price * count}])
+  }
+
+  function updateCart(id, count){
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: (item.count + count), totalPrice: (item.count + count) * item.price} : item))
+  }
+
+  function incrementCart(id){
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: (item.count + 1), totalPrice: (item.count + 1) * item.price} : item))
+  }
+
+  function decrementCart(id){
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: Math.max(0, (item.count - 1)), totalPrice: Math.max(0,(item.count - 1)) * item.price} : item))
+  }
+
+  function getTotal(){
+    let total = 0
+    cart.forEach((item) => {
+      total += item.totalPrice
+    })
+    return total
+  }
 
   return (
     <>
      <Header/>
-     <Outlet context={[products, error, loading, cart, setCart]}/>
+     <Outlet context={{products, error, loading, cart, setCart, addToCart, updateCart, getTotal, incrementCart, decrementCart}}/>
     </>
   )
 }

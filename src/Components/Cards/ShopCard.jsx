@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import styles from '../Shop/Shop.module.css'
+import { useOutletContext } from 'react-router-dom';
 
 function ShopCard({product}) {
 
   const [counterValue, setCounterValue] = useState(1);
+
+  const {cart, setCart, addToCart, updateCart} = useOutletContext()
 
   const decrement = () => {
     if(counterValue > 0 ){
@@ -14,6 +17,25 @@ function ShopCard({product}) {
   const increment = () => {
     if(counterValue < 100 ){
         setCounterValue(counterValue + 1)
+    }
+  }
+
+  function isPresent(id){
+    for(let i=0 ; i<cart.length ; i++){
+        if(cart[i].id === id){
+            return true
+        }
+    }
+    return false
+  }
+
+  function add(){
+    console.log(isPresent(product.id));
+    if(isPresent(product.id)){
+        updateCart(product.id, counterValue)
+    }
+    else {
+        addToCart(product, counterValue)
     }
   }
 
@@ -32,7 +54,7 @@ function ShopCard({product}) {
             </div>
         </div>
         <div className={styles.row2}>
-            <button className={styles.addCartBtn}>Add To Cart</button>
+            <button onClick={add} className={styles.addCartBtn}>Add To Cart</button>
         </div>
     </div>
   )

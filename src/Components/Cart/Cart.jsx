@@ -5,7 +5,7 @@ import CartCard from '../Cards/CartCard'
 
 function Cart() {
 
-  const [, , , cart, setCart] = useOutletContext()
+  const {cart, setCart, getTotal} = useOutletContext()
   console.log(cart);
 
   return (
@@ -14,8 +14,8 @@ function Cart() {
       <div className={styles.cartCtn}>
         <div className={styles.cartInfo}>
           <div className={styles.cartInfoHeader}>
-            <h3>2 Items</h3>
-            <h3>Total: Rs1400</h3>
+            <h3>{cart.length} Item</h3>
+            <h3>Total: ${getTotal()}</h3>
           </div>
           <div className={styles.cardsCtn}>
             {cart.map((product) => (
@@ -28,15 +28,15 @@ function Cart() {
           <div className={styles.paymentInfo}>
             <div>
               <p>Subtotal</p>
-              <p>Rs1400</p>
+              <p>${getTotal()}</p>
             </div>
             <div>
               <p>Shipping</p>
-              <p>Rs200</p>
+              <p>$200</p>
             </div>
             <div>
               <p>Total</p>
-              <p>1600</p>
+              <p>${getTotal() + 200}</p>
             </div>
           </div>
           <button>Proceed To Checkout</button>
