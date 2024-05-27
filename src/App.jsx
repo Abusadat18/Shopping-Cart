@@ -17,11 +17,15 @@ function App() {
   }
 
   function incrementCart(id){
-    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: (item.count + 1), totalPrice: (item.count + 1) * item.price} : item))
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: Math.min(30,(item.count + 1)), totalPrice: Math.min(30,(item.count + 1)) * item.price} : item))
   }
 
   function decrementCart(id){
-    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: Math.max(0, (item.count - 1)), totalPrice: Math.max(0,(item.count - 1)) * item.price} : item))
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: Math.max(1, (item.count - 1)), totalPrice: Math.max(1,(item.count - 1)) * item.price} : item))
+  }
+
+  function customValueCounter(id, value){
+    setCart((prev) => prev.map((item) => item.id === id ? {...item, count: Math.min(30, (Math.max(1,value))), totalPrice: Math.min(30,(Math.max(1,value))) * item.price} : item))
   }
 
   function getTotal(){
@@ -32,10 +36,14 @@ function App() {
     return total
   }
 
+  function deleteFromCart(id){
+    setCart((prev) => prev.filter((item) => item.id === id ? false : true))
+  }
+
   return (
     <>
      <Header/>
-     <Outlet context={{products, error, loading, cart, setCart, addToCart, updateCart, getTotal, incrementCart, decrementCart}}/>
+     <Outlet context={{products, error, loading, cart, setCart, addToCart, updateCart, getTotal, incrementCart, decrementCart, deleteFromCart, customValueCounter}}/>
     </>
   )
 }

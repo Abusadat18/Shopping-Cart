@@ -1,10 +1,12 @@
 .cartSection {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .cartCtn {
-    border: 2px solid rebeccapurple;
+    border: 2px solid black;
+    border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr 25%;
     padding: 10px;
@@ -30,11 +32,10 @@
 
 .card {
     display: grid;
-    grid-template-columns: 100px minmax(min-content,50%) max-content max-content max-content;
+    grid-template-columns: 100px minmax(min-content,50%) max-content 100px 25px;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    border: 2px solid black;
 }
 
 .counterCtn {
@@ -49,10 +50,13 @@
 .counterInput {
     height: 20px;
     width: 75px;
+    text-align: center;
 }
 
 .deleteBtn {
     width: 20px;
+    border: none;
+    background-color: transparent;
 }
 
 .productTitle {

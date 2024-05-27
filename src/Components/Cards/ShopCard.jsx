@@ -9,14 +9,22 @@ function ShopCard({product}) {
   const {cart, setCart, addToCart, updateCart} = useOutletContext()
 
   const decrement = () => {
-    if(counterValue > 0 ){
+    if(counterValue > 1 ){
         setCounterValue(counterValue - 1)
     }
   }
 
   const increment = () => {
-    if(counterValue < 100 ){
+    if(counterValue < 31 ){
         setCounterValue(counterValue + 1)
+    }
+  }
+
+  const counterHandler = (e) => {
+    if(e.target.value < 31) {
+        setCounterValue(e.target.value)
+    } else {
+        setCounterValue(30)
     }
   }
 
@@ -48,7 +56,7 @@ function ShopCard({product}) {
                 <h3 className={styles.productPrice}>${product.price}</h3>
                 <div className={styles.counter}>
                     <button onClick={decrement} className={styles.counterBtn}>-</button>
-                    <input className={styles.counterInput} type="number" id="" value={counterValue} onChange={(e) => setCounterValue(e.target.value) } />
+                    <input className={styles.counterInput} type="number" id="" value={counterValue} onChange={counterHandler} />
                     <button onClick={increment} className={styles.counterBtn}>+</button>
                 </div>
             </div>

@@ -15,7 +15,7 @@ function Cart() {
         <div className={styles.cartInfo}>
           <div className={styles.cartInfoHeader}>
             <h3>{cart.length} Item</h3>
-            <h3>Total: ${getTotal()}</h3>
+            <h3>Total: ${Math.trunc(getTotal())}</h3>
           </div>
           <div className={styles.cardsCtn}>
             {cart.map((product) => (
@@ -28,7 +28,7 @@ function Cart() {
           <div className={styles.paymentInfo}>
             <div>
               <p>Subtotal</p>
-              <p>${getTotal()}</p>
+              <p>${Math.trunc(getTotal())}</p>
             </div>
             <div>
               <p>Shipping</p>
@@ -36,7 +36,7 @@ function Cart() {
             </div>
             <div>
               <p>Total</p>
-              <p>${getTotal() + 200}</p>
+              <p>${Math.trunc(getTotal()) + 200}</p>
             </div>
           </div>
           <button>Proceed To Checkout</button>

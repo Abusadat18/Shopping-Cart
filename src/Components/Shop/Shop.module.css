@@ -49,6 +49,7 @@
 
 .counterInput {
     width: 75px;
+    text-align: center;
 }
 
 .counterBtn {
