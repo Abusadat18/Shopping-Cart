@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 function useData() {
 
     const [products, setProducts] = useState([])
-    const [error, setError] = useState("")
+    const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
