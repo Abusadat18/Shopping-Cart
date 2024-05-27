@@ -67,14 +67,14 @@
 }
 
 /* Chrome, Safari, Edge, Opera */
-.counterInput::-webkit-outer-spin-button,
-.counterInput::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-.counterInput {
+input[type=number] {
   -moz-appearance: textfield;
 }
 

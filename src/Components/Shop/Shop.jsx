@@ -5,7 +5,7 @@ import styles from '../Shop/Shop.module.css'
 
 function Shop() {
 
-  const [products, error, loading] = useOutletContext()
+  const [products, error, loading, cart, setCart] = useOutletContext()
 
   if(loading) return <main>Loading..du..duu..</main>
   if(error) return <main>Try again 😑</main>
@@ -13,7 +13,7 @@ function Shop() {
   return (
     <main className={styles.cardsCtn}>
       {products.map((product) => (
-        <ShopCard key={product.id} product={product}/>
+        <ShopCard key={product.id} product={product} cart={cart} setCart={setCart}/>
       ))}
     </main>
   )

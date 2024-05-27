@@ -1,0 +1,80 @@
+.cartSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartCtn {
+    border: 2px solid rebeccapurple;
+    display: grid;
+    grid-template-columns: 1fr 25%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.cartInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartInfoHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardsCtn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 100px minmax(min-content,max-content) max-content max-content max-content;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.counterCtn {
+    display: flex;
+}
+
+.counterBtn {
+    width: 20px;
+    height: 20px;
+}
+
+.counterInput {
+    height: 20px;
+    width: 75px;
+}
+
+.deleteBtn {
+    width: 20px;
+}
+
+.productTitle {
+    font-size: 20px;
+}
+
+.productPrice {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.paymentInfoCtn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.paymentInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.paymentInfo > div {
+    display: flex;
+    justify-content: space-between;
+}
